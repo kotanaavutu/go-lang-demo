@@ -25,4 +25,4 @@ jobs:
         run: go mod tidy
 
       - name: Test
-        run: goplantuml -recursive ../../plantuml > diagrams/demo.puml
+        run: goplantuml -recursive ../../plantuml > demo.puml
