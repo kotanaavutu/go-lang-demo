@@ -15,9 +15,6 @@ jobs:
         with:
           go-version: 1.17
 
-      - name: Get
-        run: go get -t -v ./...
-
       - name: Get Go plantuml parse
         run: go get github.com/jfeliu007/goplantuml/parser
 
@@ -28,4 +25,4 @@ jobs:
         run: go mod tidy
 
       - name: Test
-        run: goplantuml -recursive ../../plantuml > diagrams/demo.puml
+        run: goplantuml -recursive ./plantuml > demo.puml
