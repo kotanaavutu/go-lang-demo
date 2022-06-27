@@ -1,0 +1,31 @@
+name: Go
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  Automated-classdiagrams-gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      - name: Get
+        run: go get -t -v ./...
+
+      - name: Get Go plantuml parse
+        run: go get github.com/jfeliu007/goplantuml/parser
+
+      - name: Get Go plantuml
+        run: go install github.com/jfeliu007/goplantuml/cmd/goplantuml@latest
+
+      - name: Go Mod Tidy
+        run: go mod tidy
+
+      - name: Test
+        run: goplantuml -recursive ../../plantuml > diagrams/demo.puml
