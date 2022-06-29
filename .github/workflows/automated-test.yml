@@ -27,7 +27,7 @@ jobs:
       - name: Test
         run: |
           status=$(goplantuml -recursive ./plantuml > log.puml 2>&1; echo $?)
-          cat log.txt
+          cat log.puml
           echo ::set-output name=status::$status
 
       - name: Commit log
