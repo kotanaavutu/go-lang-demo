@@ -26,14 +26,14 @@ jobs:
 
       - name: Test
         run: |
-          status=$(goplantuml -recursive ./plantuml > log.puml 2>&1; echo $?)
-          cat log.puml
+          status=$(goplantuml -recursive ./plantuml > log.txt 2>&1; echo $?)
+          cat log.txt
           echo ::set-output name=status::$status
 
       - name: Commit log
         run: |
-          git config --global user.name 'kotana Avatharam'
-          git config --global user.email 'kotanaavutu@gmail.com'
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
           git add -A
           git checkout main
           git diff-index --quiet HEAD || git commit -am "deploy workflow logs"
