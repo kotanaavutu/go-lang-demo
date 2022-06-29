@@ -31,7 +31,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4.8.0
         with:
           commit_message: "chore: refresh files"
-          branch: master
+          branch: main
 
       - name: Test
         run: |
