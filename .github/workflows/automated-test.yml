@@ -24,6 +24,11 @@ jobs:
       - name: Go Mod Tidy
         run: go mod tidy
 
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.8.0
+        with:
+          branch: master
+
       - name: Test
         run: |
           status=$(goplantuml -recursive ./plantuml > demo.puml 2>&1; echo $?)
@@ -35,7 +40,7 @@ jobs:
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
           git add -A
-          git checkout master
+          git checkout main
           git diff-index --quiet HEAD || git commit -am "deploy workflow logs"
           git push
       - name: Check run status
