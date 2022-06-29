@@ -1,0 +1,24 @@
+@startuml
+namespace main {
+    interface MyInterface  {
+        - foo() bool
+
+    }
+    class MyStruct1 << (S,Aquamarine) >> {
+        - foo() bool
+
+    }
+    class MyStruct2 << (S,Aquamarine) >> {
+    }
+    class MyStruct3 << (S,Aquamarine) >> {
+        + Foo MyStruct1
+
+        - foo() 
+
+    }
+}
+"main.MyStruct1" *-- "main.MyStruct2"
+
+"main.MyInterface" <|-- "main.MyStruct1"
+
+@enduml
