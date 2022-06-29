@@ -26,6 +26,7 @@ jobs:
 
       - name: Test
         run: |
+          mkdir ./class-diagrams
           touch ./class-diagrams/demo.puml
           goplantuml -recursive ./plantuml > ./class-diagrams/demo.puml
 
