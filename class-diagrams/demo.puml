@@ -1,0 +1,64 @@
+@startuml
+namespace demo {
+    interface DemoInterface  {
+        - demo() bool
+
+    }
+    class DemoStruct1 << (S,Aquamarine) >> {
+        - demo() bool
+
+    }
+    class DemoStruct2 << (S,Aquamarine) >> {
+    }
+    class DemoStruct3 << (S,Aquamarine) >> {
+        + Foo DemoStruct1
+
+        - demo() 
+
+    }
+}
+"demo.DemoStruct1" *-- "demo.DemoStruct2"
+
+"demo.DemoInterface" <|-- "demo.DemoStruct1"
+
+namespace main {
+    interface MyInterface  {
+        - foo() bool
+
+    }
+    class MyStruct1 << (S,Aquamarine) >> {
+        - foo() bool
+
+    }
+    class MyStruct2 << (S,Aquamarine) >> {
+    }
+    class MyStruct3 << (S,Aquamarine) >> {
+        + Foo MyStruct1
+
+        - foo() 
+
+    }
+    class MyStructTest1 << (S,Aquamarine) >> {
+        - fooTest() bool
+
+    }
+    class MyStructTest2 << (S,Aquamarine) >> {
+    }
+    class MyStructTest3 << (S,Aquamarine) >> {
+        + Foo MyStructTest1
+
+        - fooTest() 
+
+    }
+    interface Test  {
+        - fooTest() bool
+
+    }
+}
+"main.MyStruct1" *-- "main.MyStruct2"
+"main.MyStructTest1" *-- "main.MyStructTest2"
+
+"main.MyInterface" <|-- "main.MyStruct1"
+"main.Test" <|-- "main.MyStructTest1"
+
+@enduml
