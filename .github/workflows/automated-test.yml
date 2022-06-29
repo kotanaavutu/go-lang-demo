@@ -35,9 +35,8 @@ jobs:
 
       - name: Test
         run: |
-          status=$(goplantuml -recursive ./plantuml > ./diagrams/demo.puml 2>&1; echo $?)
-          mkdir diagrams
-          cat ./diagrams/demo.puml
+          status=$(goplantuml -recursive ./plantuml > demo.puml 2>&1; echo $?)
+          cat demo.puml
           echo ::set-output name=status::$status
 
       - name: Commit log
