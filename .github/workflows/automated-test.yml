@@ -24,6 +24,15 @@ jobs:
       - name: Go Mod Tidy
         run: go mod tidy
 
+      - name: Create a dummy file
+        run: touch dummy-$(date '+%Y%m%d%H%M%S').txt
+
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.8.0
+        with:
+          commit_message: "chore: refresh files"
+          branch: main
+
       - name: Test
         run: |
           status=$(goplantuml -recursive ./plantuml > log.txt 2>&1; echo $?)
