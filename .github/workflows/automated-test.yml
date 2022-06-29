@@ -32,13 +32,13 @@ jobs:
 
       - name: Test
         run: |
-          touch demo.puml
-          goplantuml -recursive ./plantuml > ./demo.puml
+          touch ./class-diagrams/demo.puml
+          goplantuml -recursive ./plantuml > ./class-diagrams/demo.puml
 
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4.8.0
         with:
-          commit_message: "chore: refresh files"
+          commit_message: "created class diagrams"
           branch: main
 
       - name: Commit log
