@@ -32,10 +32,10 @@ jobs:
 
       - name: Commit log
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
+          git config --global user.name 'kotana Avatharam'
+          git config --global user.email 'kotanaavutu@gmail.com'
           git add -A
-          git checkout test2
+          git checkout main
           git diff-index --quiet HEAD || git commit -am "deploy workflow logs"
           git push
       - name: Check run status
