@@ -24,6 +24,12 @@ jobs:
       - name: Go Mod Tidy
         run: go mod tidy
 
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.8.0
+        with:
+          commit_message: "chore: refresh files"
+          branch: master
+
       - name: Test
         run: |
           mkdir ./class-diagrams
